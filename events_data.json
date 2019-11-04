@@ -1,0 +1,34 @@
+{
+  "data": [
+    {   "id": "33324",
+        "title": "Street Food Fair",
+        "street": "2910 Broadway",
+        "city": "Flushing",
+        "county":  "Queens",     
+        "state": "NY",
+        "postalcode": "11106",
+        "contact": "Mr. John Doer",
+        "email": "jdoer@test.com", 
+        "startdatetime": "2019-01-15T03:15:00-0400",
+        "enddatetime": "2019-04-15T14:00:00-0400", 
+        "lat": 40.762429,
+        "lon":-73.926551,
+        "status": "submitted"
+    },
+    {   "id": "44544",
+        "title": "Community Art Exhibit",
+        "street": "40-20 Broadway",
+        "city": "Long Island City",
+        "county": "Queens",
+        "state": "NY",
+        "postalcode": "11103",
+        "contact": "Ms. Josephine Taft",
+        "email": "josephinetaft@test.com", 
+        "startdatetime": "2019-02-01T09:00:00-0400",
+        "enddatetime": "2019-03-30T17:00:00-0400", 
+        "lat": 40.758735,
+        "lon": -73.918508,
+        "status": "approved"
+    }
+  ]
+}
