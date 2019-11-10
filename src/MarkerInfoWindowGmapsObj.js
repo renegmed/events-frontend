@@ -1,18 +1,56 @@
 import React, { Component, Fragment } from 'react';
 import isEmpty from 'lodash.isempty'; 
+import moment from 'moment';
  
 import GoogleMap from './components/GoogleMap';
 
 
 const DEFAULT_CENTER =  [40.745451, -73.909784];
 
-const getInfoWindowString = event => `
+const getInfoWindowString = (event) => {
+    
+    moment.locale('en')
+    const startdate = event.startdatetime;
+    const enddate = event.enddatetime;
+    // console.log(moment(startdate).format('LLLL'))
+    // console.log(moment(enddate).format('LLL'))
+    const startdatetime = moment(startdate).format('LLLL');
+    const enddatetime = moment(enddate).format('LLLL');
+    
+    return `
     <div>
-        <div style="font-size; 16px;">
-            ${event.title}
+        <div style="font-size; 18pt;color: blue;">
+            <b>${event.title}</b>
+        </div>
+        <div style="font-size; 14pt;color: black;">
+            ${event.description}
+        </div>
+        <div style="font-size; 16px;color: black;">
+            <label style="color: grey;"><b>street:</b></label>${event.street}
+        </div>
+        <div style="font-size; 16px;color: black;">
+            <label style="color: grey;"><b>city:</b></label>${event.city}
+        </div> 
+        <div style="font-size; 16px;color: black;">
+            <div>
+                <label style="color: grey;"><b>start date:</b></label>${startdatetime}
+            <div>
+            <div>
+                <label style="color: grey;"><b>end date:</b></label>${enddatetime}
+            <div>
+        </div>
+        <div style="font-size; 16px;color: black;">
+            <label style="color: grey;"><b>contact:</b></label>${event.contact}
+        </div>
+        <div style="font-size; 16px;color: black;">
+            <label style="color: grey;"><b>email:</b></label>${event.email}
+        </div>
+        <div style="font-size; 16px;color: black;">
+            <label style="color: grey;"><b>status:</b></label>${event.evtstatus}
         </div>
     </div>
-`;
+    `;
+};    
 
 // Refer to https://github.com/google-map-react/google-map-react#use-google-maps-api
 const handleApiLoaded = (map, maps, events) => {
@@ -49,11 +87,11 @@ const handleApiLoaded = (map, maps, events) => {
     markers.forEach((marker, i) => {
         marker.addListener('click', (param) => {
             infowindows[i].open(map, marker);
-            console.log("+++++++++")
-            console.log(param); //infowindows[i]);
+            // console.log("+++++++++")
+            // console.log(param); //infowindows[i]);
 
-            console.log("-----")
-            console.log(param.valueOf()); 
+            // console.log("-----")
+            // console.log(param.valueOf()); 
 
         });
     });
@@ -84,7 +122,7 @@ class MarkerInfoWindowGmapsObj extends Component {
                 // console.log("----- pullData -----")
                 // console.log(result)
             }); 
-            console.log(data.events);
+            // console.log(data.events);
             this.setState({ events: data.events });
         }).catch((e) => {
             console.log(e)
