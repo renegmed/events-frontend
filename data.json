@@ -1,0 +1,80 @@
+{
+"events":[ 
+ {   
+  "channel": "directmessage",​​
+  "channelid": "DQ07UQT1A",
+​​  "city": "Sunnyside",
+​  ​"contact": "",
+  "country": "USA",
+​  ​"county": "Queens",
+​​  "description": "",
+​​  "email": "",
+​​  "enddatetime": "",
+​​  "evtstatus": "active",
+​​  "id": "1c8ee368-cad0-46d5-af95-d6fdad97968c",​​
+  "lat": 40.749728,
+  "link": "",
+  ​​"linklabel": "",
+  ​​"lon": -73.914484,
+​  ​"postalcode": "11104",
+​​  "show": true,
+​  "startdatetime": "",
+​  ​"state": "",
+​  ​"street": "48-21 39th Ave",
+​  ​"teamdomain": "golang-slack-dev",
+  "teamid": "TP0N9QXC1",
+  ​​"title": "Sunnyside Gardens Yoga"
+ },
+ {
+    "channel": "business-processes-automation",    ​​
+    "channelid": "CP0N9S5CZ",    ​​
+    "city": "NY",    ​​
+    "contact": "John Doer",    ​​
+    "country": "USA",    ​​
+    "county": "Queens",    ​​
+    "description": "",    ​​
+    "email": "",    ​​
+    "enddatetime": "",    ​​
+    "evtstatus": "on-schedule",    ​​
+    "id": "f2e436cc-b128-4c06-8ebe-69af2e146827",    ​​
+    "lat": 40.7475537,    ​​
+    "link": "",    ​​
+    "linklabel": "",    ​​
+    "lon": -73.91100519999999,    ​​
+    "postalcode": "11377",    ​​
+    "show": true,    ​​
+    "startdatetime": "",    ​​
+    "state": "",    ​​
+    "street": "Windmuller Park 39th Rd",    ​​
+    "teamdomain": "golang-slack-dev",    ​​
+    "teamid": "TP0N9QXC1",    ​​
+    "title": "Marathon Training"
+ },
+ {
+    "channel": "directmessage",    ​​
+    "channelid": "DQ07UQT1A",    ​​
+    "city": "Woodside",    ​​
+    "contact": "",    ​​
+    "country": "USA",    ​​
+    "county": "Queens",    ​​
+    "description": "Gathering of like-minded persons with interest on books.",    ​​
+    "email": "",    ​​
+    "enddatetime": "2019-11-04T18:15:00-04:00",    ​​
+    "evtstatus": "on-schedule",    ​​
+    "id": "dead67e2-8dea-4196-a140-c68378f27cf3",    ​​
+    "lat": 40.745331,    ​​
+    "link": "",    ​​
+    "linklabel": "",    ​​
+    "lon": -73.909791,    ​​
+    "postalcode": "11377",    ​​
+    "show": true,    ​​
+    "startdatetime": "2019-11-04T17:00:00-04:00",    ​​
+    "state": "NY",    ​​
+    "street": "Public Library 54-22 Skillman Ave",    ​​
+    "teamdomain": "golang-slack-dev",    ​​
+    "teamid": "TP0N9QXC1",    ​​
+    "title": "Book Review Club"
+ }
+]
+
+}	

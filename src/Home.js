@@ -59,7 +59,31 @@ const Home = () => (
       <ListItem>
         <StyledLink to={`${defaultPath}marker-info-window-gmaps-obj`}>Marker and Info Window (Google Maps API Object)</StyledLink>
       </ListItem>
-    </List>
+    
+      <ListItem>
+        <StyledLink to={`${defaultPath}events-display`}>Events Display</StyledLink>
+      </ListItem>
+      <ListItem>
+        <StyledLink to={`${defaultPath}simple-slider`}>Simple Slider</StyledLink>
+      </ListItem>
+
+      <ListItem>
+        <StyledLink to={`${defaultPath}slider-autoplay`}>Autoplay</StyledLink>
+      </ListItem>
+
+      <ListItem>
+        <StyledLink to={`${defaultPath}slider-autoplay-methods`}>Autoplay Methods</StyledLink>
+      </ListItem>
+
+      <ListItem>
+        <StyledLink to={`${defaultPath}slide-change-hooks`}>Slide Change Hooks</StyledLink>
+      </ListItem>
+
+      <ListItem>
+        <StyledLink to={`${defaultPath}custom-slide`}>Custom Slide</StyledLink>
+      </ListItem>
+      
+    </List>  
   </Wrapper>
 );
 
