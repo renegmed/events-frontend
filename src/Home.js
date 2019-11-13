@@ -50,14 +50,14 @@ const defaultPath = process.env.REACT_APP_BASE_PATH;
 
 const Home = () => (
   <Wrapper>
-    <h1>google-map-react examples</h1>
+    <h1>Community Events</h1>
     <List>
       
       <ListItem>
-        <StyledLink to={`${defaultPath}marker-info-window`}>Marker and Info Window (React Component)</StyledLink>
+        <StyledLink to={`${defaultPath}marker-info-window`}>Customized Markers</StyledLink>
       </ListItem> 
       <ListItem>
-        <StyledLink to={`${defaultPath}marker-info-window-gmaps-obj`}>Marker and Info Window (Google Maps API Object)</StyledLink>
+        <StyledLink to={`${defaultPath}marker-info-window-gmaps-obj`}>Google Maps API Markers</StyledLink>
       </ListItem>
     </List>
   </Wrapper>

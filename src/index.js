@@ -7,14 +7,14 @@ import Home from './Home';
 import MarkerInfoWindow from './MarkerInfoWindow';
 import MarkerInfoWindowGmapsObj from './MarkerInfoWindowGmapsObj';
 import * as serviceWorker from './serviceWorker';
-
+import 'bootstrap/dist/css/bootstrap.css';
 const defaultPath = process.env.REACT_APP_BASE_PATH;
 
 ReactDOM.render(
     <Router>
         <App>
             <Switch>
-                <Route exact path={defaultPath} component={Home} />
+                <Route exact path={`${defaultPath}`} component={Home} />
                 <Route path={`${defaultPath}marker-info-window`} component={MarkerInfoWindow} />
                 <Route path={`${defaultPath}marker-info-window-gmaps-obj`} component={MarkerInfoWindowGmapsObj} />
                 <Redirect exact from="*" to={defaultPath} />
