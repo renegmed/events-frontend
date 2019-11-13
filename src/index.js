@@ -14,7 +14,7 @@ ReactDOM.render(
     <Router>
         <App>
             <Switch>
-                <Route exact path={`${defaultPath}`} component={Home} />
+                <Route exact path={defaultPath} component={Home} />
                 <Route path={`${defaultPath}marker-info-window`} component={MarkerInfoWindow} />
                 <Route path={`${defaultPath}marker-info-window-gmaps-obj`} component={MarkerInfoWindowGmapsObj} />
                 <Redirect exact from="*" to={defaultPath} />
