@@ -14,10 +14,10 @@ ReactDOM.render(
     <Router>
         <App>
             <Switch>
-                <Route exact path={defaultPath} component={Home} />
-                <Route path={`${defaultPath}marker-info-window`} component={MarkerInfoWindow} />
-                <Route path={`${defaultPath}marker-info-window-gmaps-obj`} component={MarkerInfoWindowGmapsObj} />
-                <Redirect exact from="*" to={defaultPath} />
+                <Route exact path={"/"} component={Home} />
+                <Route path={`/marker-info-window`} component={MarkerInfoWindow} />
+                <Route path={`/marker-info-window-gmaps-obj`} component={MarkerInfoWindowGmapsObj} />
+                <Redirect exact from="*" to={"/"} />
             </Switch>   
         </App>
     </Router>,
