@@ -9,46 +9,25 @@ const DEFAULT_CENTER =  [40.762064, -73.925428];
 
 const getInfoWindowString = (event) => {
     
-    moment.locale('en')
-    const startdate = event.startdatetime;
-    const enddate = event.enddatetime;
-    // console.log(moment(startdate).format('LLLL'))
-    // console.log(moment(enddate).format('LLL'))
-    const startdatetime = moment(startdate).format('LLLL');
-    const enddatetime = moment(enddate).format('LLLL');
-    
+    moment.locale('en') 
+
+    const description = isEmpty(event.description) ?"":  "<div>"+event.description+"</div>";
+    const contact = isEmpty(event.contact) ? "" :   "<div style=\"font-size; 16px;color: black;\"><label style=\"color: grey;\">" +
+      "<b>contact:</b></label>" + event.contact + "</div>";
+    const email = isEmpty(event.email) ? "" :   "<div style=\"font-size; 16px;color: black;\">" +
+      "<label style=\"color: grey;\"><b>email:</b></label>" + event.email + "</div>";
+    const status = isEmpty(event.status) ? "" :   "<div style=\"font-size; 16px;color: black;\">" +
+      "<label style=\"color: grey;\"><b>status:</b></label>" + event.status + "</div>";
     return `
-    <div>
+      <div>
         <div style="font-size; 18pt;color: blue;">
             <b>${event.title}</b>
-        </div>
-        <div style="font-size; 14pt;color: black;">
-            ${event.description}
-        </div>
-        <div style="font-size; 16px;color: black;">
-            <label style="color: grey;"><b>street:</b></label>${event.street}
-        </div>
-        <div style="font-size; 16px;color: black;">
-            <label style="color: grey;"><b>city:</b></label>${event.city}
-        </div> 
-        <div style="font-size; 16px;color: black;">
-            <div>
-                <label style="color: grey;"><b>start date:</b></label>${startdatetime}
-            <div>
-            <div>
-                <label style="color: grey;"><b>end date:</b></label>${enddatetime}
-            <div>
-        </div>
-        <div style="font-size; 16px;color: black;">
-            <label style="color: grey;"><b>contact:</b></label>${event.contact}
-        </div>
-        <div style="font-size; 16px;color: black;">
-            <label style="color: grey;"><b>email:</b></label>${event.email}
-        </div>
-        <div style="font-size; 16px;color: black;">
-            <label style="color: grey;"><b>status:</b></label>${event.evtstatus}
-        </div>
-    </div>
+        </div>        
+        ${description}
+        ${contact}
+        ${email} 
+        ${status}        
+      </div>
     `;
 };    
 
@@ -110,11 +89,17 @@ class MarkerInfoWindowGmapsObj extends Component {
     }
 
     componentDidMount() {
-        fetch("https://vxahypeomd.execute-api.us-east-1.amazonaws.com/dev/event/query?category=community") 
-        .then(response => response.json())
+        fetch("https://vxahypeomd.execute-api.us-east-1.amazonaws.com/dev/event/query?category=mesh") 
+        .then(response => {
+            // console.log("++++ response")
+            // console.log(response);
+            return response.json() })
         .then((data) => {
-            // console.log("++++")
+            // console.log("++++ data,events")
             // console.log(data.events);
+            if (typeof data.events == 'undefined' ) {
+                return
+            }
             data.events.forEach((result) => { 
                
                 result.show = true // elint-disable-line no-param-reassign

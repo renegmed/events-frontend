@@ -9,7 +9,7 @@ import { Container, Row, Col } from 'reactstrap';
 const DEFAULT_CENTER =  [40.745451, -73.909784];
 
 const InfoWindow = ( props ) => {
-    const { event }  = props;
+    //const { event }  = props;
     const infoWindowStyle = {
         position: 'relative',
         bottom: 150,
@@ -78,8 +78,7 @@ class CustomSlide extends Component {
           <div><label>Contact: </label>{event.contact}</div> 
           <div><label>Email: </label>{event.email}</div> 
           <div><label>Start: </label>{startdatetime}</div> 
-          <div><label>End: </label>{enddatetime}</div> 
-          <div><label>Show: </label>{event.show?"true":"false"}</div>  
+          <div><label>End: </label>{enddatetime}</div>  
         </div>
       );
     }
@@ -97,24 +96,35 @@ class MarkerInfoWindow extends Component {
     setDisplayFlag(n, i, sh) {
         //console.log("----", n, "------");
         const events = this.state.events;
+        console.log(events.length);
+        if (events.length === 0) {
+            return;
+        } 
         events[i].show = sh;
         this.setState({events: events}); 
     };
 
     pullData = () => {
         // console.log("start fetch and parsing json data")
-        fetch("https://vxahypeomd.execute-api.us-east-1.amazonaws.com/dev/event/list") 
-            .then(response => response.json())
+       
+        fetch("https://vxahypeomd.execute-api.us-east-1.amazonaws.com/dev/event/query?category=community", {
+            mode: 'cors',
+            'Access-Control-Allow-Origin': '*'
+        }) 
+            .then((response) => response.json())
             .then((data) => { 
+                console.log(data);
                 data.events.forEach((result) => {  
                     result.show = false // elint-disable-line no-param-reassign 
                 }); 
                 this.setState({ events: data.events });
             }).catch((e) => {
+                console.log("--- error fetch data ----");
                 console.log(e)
             });
             
         // console.log("End of parsing.")    
+      
     }
     componentDidMount() {
         this.pullData()        
@@ -146,11 +156,10 @@ class MarkerInfoWindow extends Component {
             }
         };
         return (
-           <Container> 
-              <Row>
-                <Col sm={6}>
-                 
-                     { !isEmpty( events ) && (                   
+            <Container> 
+                 <Row>
+                 <Col sm="6">
+             { !isEmpty( events ) && (                   
                          <GoogleMap
                              defaultZoom={10}
                              defaultCenter={DEFAULT_CENTER}
@@ -169,11 +178,10 @@ class MarkerInfoWindow extends Component {
                          }
                          </GoogleMap>
                      )
-                     } 
-                    
+            } 
+             
                 </Col>
-        
-                <Col sm={6}>
+                <Col sm="6">
                      <Slider {...settings}>
                          { events.map((e, i) =>(
                              <CustomSlide key={i} event ={e}></CustomSlide> 
@@ -181,8 +189,14 @@ class MarkerInfoWindow extends Component {
                      </Slider>
                 </Col>
             </Row> 
+            
+      
 
-        </Container>             
+        </Container>        
+                    
+         
+         
+             
         );
     }
 }

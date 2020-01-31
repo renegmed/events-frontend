@@ -59,6 +59,9 @@ const Home = () => (
       <ListItem>
         <StyledLink to={`${defaultPath}marker-info-window-gmaps-obj`}>Google Maps API Markers</StyledLink>
       </ListItem>
+      <ListItem>
+        <StyledLink to={`${defaultPath}mesh-map`}>Mesh Map</StyledLink>
+      </ListItem>
     </List>
   </Wrapper>
 );
